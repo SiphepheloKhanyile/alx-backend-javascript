@@ -39,7 +39,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+0x00-ES6_basic/node_modules/
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
