@@ -7,7 +7,8 @@ function handleResponseFromAPI(promise) {
         body: 'success',
       };
     })
-    .catch(() => { Error(); });
+    // eslint-disable-next-line no-new
+    .catch(() => { new Error(); });
 }
 
 export default handleResponseFromAPI;
