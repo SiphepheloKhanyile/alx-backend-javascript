@@ -8,11 +8,10 @@ readline.question(
   (name) => {
     console.log(`Your name is: ${name}`);
     readline.close();
-    // console.log('This important software is now closing');
   },
 );
 
-process.on('SIGBREAK', () => {
+process.stdin.on('end', () => {
   console.log('This important software is now closing\n');
   process.exit(0);
 });
