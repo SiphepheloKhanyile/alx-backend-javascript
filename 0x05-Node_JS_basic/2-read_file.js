@@ -4,14 +4,17 @@ function countStudents(filePath) {
   try {
     const data = fs.readFileSync(filePath);
     const dataArray = data.toString().split('\n');
-    console.log(`Number of students: ${dataArray.length - 1}`);
 
     const sweStudents = [];
     let numberOfSweStudents = 0;
     let numberOfCsStudents = 0;
+    let numberOfStudents = 0;
     const csStudents = [];
 
     dataArray.forEach((element) => {
+      if (element !== '') {
+        numberOfStudents += 1;
+      }
       const student = element.split(',');
       if (student[student.length - 1] === 'SWE') {
         sweStudents.push(student[0]);
@@ -24,6 +27,7 @@ function countStudents(filePath) {
       }
     });
 
+    console.log(`Number of students: ${numberOfStudents - 1}`);
     console.log(`Number of students in CS: ${numberOfCsStudents}. List: ${csStudents.join(', ').trimEnd()}`);
     console.log(`Number of students in SWE: ${numberOfSweStudents}. List: ${sweStudents.join(', ').trimEnd()}`);
   } catch (error) {
