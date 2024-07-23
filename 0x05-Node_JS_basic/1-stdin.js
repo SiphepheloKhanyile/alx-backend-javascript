@@ -10,3 +10,7 @@ readline.question(
     readline.close();
   },
 );
+
+process.on('exit', () => {
+  console.log('This important software is now closing');
+});
