@@ -21,7 +21,7 @@ const app = http.createServer((req, res) => {
     try {
       fs.readFile(databaseName, (err, data = '') => {
         if (err) {
-          return res.end('This is the list of our students');
+          throw new Error('Cannot load the database');
         }
         const dataArray = data.toString().split('\n');
         const sweStudents = [];
@@ -52,7 +52,7 @@ const app = http.createServer((req, res) => {
         return res.end(`Number of students in SWE: ${numberOfSweStudents}. List: ${sweStudents.join(', ').trimEnd()}`);
       });
     } catch (error) {
-      console.log('Cannot load the database');
+      throw new Error('Cannot load the database');
     }
   }
 });
