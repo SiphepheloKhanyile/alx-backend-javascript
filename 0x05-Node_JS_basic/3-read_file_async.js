@@ -27,13 +27,11 @@ async function countStudents(filePath) {
       }
     });
 
-    // Return a Promise that resolves with the counts and lists
     console.log(`Number of students: ${numberOfStudents - 1}`);
     console.log(`Number of students in CS: ${numberOfCsStudents}. List: ${csStudents.join(', ').trimEnd()}`);
     console.log(`Number of students in SWE: ${numberOfSweStudents}. List: ${sweStudents.join(', ').trimEnd()}`);
     return data;
   } catch (error) {
-    // Reject the Promise with the error
     throw new Error('Cannot load the database');
   }
 }
